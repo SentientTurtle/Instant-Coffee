@@ -1,0 +1,14 @@
+[package]
+name = "instant-coffee"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+codegen-jar = ["zip"]
+codegen-ffi = ["codegen-jar", "instant-coffee-proc-macro/codegen-ffi"]
+
+[dependencies]
+syn = { version = "2.0.60", features = ["full", "extra-traits"] }
+jni = "0.21.1"
+instant-coffee-proc-macro = { path = "../instant-coffee-proc-macro" }
+zip = { version = "1.2.1", default-features = false, features = ["deflate"], optional = true }
